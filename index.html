@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Website</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      button {
+        padding: 15px 25px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="goRandom()">Go to Random Website</button>
+
+    <script>
+      const sites = [
+        "https://www.wikipedia.org",
+        "https://www.mozilla.org",
+        "https://www.example.com",
+        "https://www.bbc.com",
+        "https://www.nhk.or.jp"
+      ];
+
+      function goRandom() {
+        if (sites.length === 0) {
+          alert("もうURLはありません！");
+          return;
+        }
+        const index = Math.floor(Math.random() * sites.length);
+        const url = sites.splice(index, 1)[0];
+
+        // ページ移動
+        window.location.href = url;
+      }
+    </script>
+  </body>
+</html>
